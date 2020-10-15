@@ -1,0 +1,181 @@
+@import './var';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+@font-face {
+    font-family: "Manrope";
+    src: url("./../font/Manrope-Medium.ttf") format("ttf"),
+        url("./../font/Manrope-Bold.ttf") format("ttf");
+}
+
+body {
+    font-family: "Manrope";
+}
+
+.wraper {
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $LightGrayishBlue;
+    padding: 25px 20px;
+
+    .preview {
+        display: flex;
+        max-width: 730px;
+        min-height: 280px;
+
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 0 2px rgba($color: #000000, $alpha:0.1);
+
+        &__image {
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            overflow: hidden;
+
+            >img {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+
+        &__infor {
+            padding: 40px;
+        }
+
+        &--heading {
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: $VeryDarkGrayishBlue;
+            margin-bottom: 25px;
+        }
+
+        &--content {
+            font-weight: 500;
+            font-size: 1.6rem;
+            color: $DesaturatedDarkBlue;
+            margin-bottom: 20px;
+        }
+
+        &__author {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            &--img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 15px;
+
+                >img {
+                    width: 100%;
+                }
+            }
+
+            &--infor {
+                font-size: 1.6rem;
+                color: $VeryDarkGrayishBlue;
+
+                .date {
+                    color: $GrayishBlue;
+                }
+            }
+
+        }
+
+        .btn__actions {
+            background-color: #6f839c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eef2fb;
+            border-radius: 50%;
+            margin-left: auto;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            position: relative;
+
+            .actions {
+                position: absolute;
+                top: -254%;
+                background-color: #49556b;
+                padding: 15px 40px;
+                border-radius: 12px;
+                display: none;
+                z-index: 1;
+
+                &.open {
+                    width: 100vw;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                &::after {
+                    content: " ";
+                    position: absolute;
+                    bottom: -20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border: 10px solid;
+                    border-color: #49556b transparent transparent;
+                }
+
+                span {
+                    color: $LightGrayishBlue;
+                    font-size: 1.8rem;
+                }
+
+            }
+        }
+    }
+}
+
+
+@media(max-width:600px) {
+    .wraper {
+        .preview {
+            flex-direction: column;
+
+            &__image {
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+            }
+
+            &__infor {
+                padding: 20px;
+            }
+
+            .btn__actions {
+                position: static;
+
+                .actions {
+                    left: 0px;
+                    top: 0;
+                    padding: 10px;
+
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+}
