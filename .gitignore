@@ -14,7 +14,7 @@
 # Avoid your project being littered with annoying .DS_Store files!
 .DS_Store
 
-./vscode
-./scss
-./style-guide.md
-./design
+.vscode
+/scss
+/style-guide.md
+/design
